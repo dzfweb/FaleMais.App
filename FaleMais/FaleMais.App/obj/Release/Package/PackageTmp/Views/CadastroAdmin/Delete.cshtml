@@ -1,0 +1,40 @@
+﻿@model FaleMais.Models.ADMIN
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deletar</h2>
+
+<h3>Você realmente deseja excluir este item?</h3>
+<fieldset>
+    <legend>ADMIN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADMIN_LOGIN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADMIN_LOGIN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADMIN_PASS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADMIN_PASS)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADMIN_ATIVO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADMIN_ATIVO)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Voltar ", "Index")
+    </p>
+}

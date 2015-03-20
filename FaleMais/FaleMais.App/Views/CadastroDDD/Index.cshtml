@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FaleMais.Models.DDD>
+
+@{
+    ViewBag.Title = "Cadastrar DDD";
+}
+
+<h2>Cadastrar DDD</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DDD_CODIGO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DDD_ATIVO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DDD_CODIGO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DDD_ATIVO)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.DDD_ID }) |
+            @Html.ActionLink("Exibir", "Details", new { id=item.DDD_ID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.DDD_ID })
+        </td>
+    </tr>
+}
+
+</table>

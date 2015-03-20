@@ -1,0 +1,44 @@
+﻿@model FaleMais.Models.DDD
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>DDD</legend>
+        @Html.HiddenFor(model => model.DDD_ID)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DDD_CODIGO)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DDD_CODIGO)
+            @Html.ValidationMessageFor(model => model.DDD_CODIGO)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DDD_ATIVO)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DDD_ATIVO)
+            @Html.ValidationMessageFor(model => model.DDD_ATIVO)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar ", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

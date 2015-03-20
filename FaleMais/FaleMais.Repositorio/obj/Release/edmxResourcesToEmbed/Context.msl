@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FaleMaisAppModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="ADMIN">
+      <EntityTypeMapping TypeName="Model.ADMIN">
+        <MappingFragment StoreEntitySet="ADMIN">
+          <ScalarProperty Name="ADMIN_ATIVO" ColumnName="ADMIN_ATIVO" />
+          <ScalarProperty Name="ADMIN_PASS" ColumnName="ADMIN_PASS" />
+          <ScalarProperty Name="ADMIN_LOGIN" ColumnName="ADMIN_LOGIN" />
+          <ScalarProperty Name="ADMIN_ID" ColumnName="ADMIN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DDD">
+      <EntityTypeMapping TypeName="Model.DDD">
+        <MappingFragment StoreEntitySet="DDD">
+          <ScalarProperty Name="DDD_ATIVO" ColumnName="DDD_ATIVO" />
+          <ScalarProperty Name="DDD_CODIGO" ColumnName="DDD_CODIGO" />
+          <ScalarProperty Name="DDD_ID" ColumnName="DDD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLANO">
+      <EntityTypeMapping TypeName="Model.PLANO">
+        <MappingFragment StoreEntitySet="PLANO">
+          <ScalarProperty Name="PLANO_ATIVO" ColumnName="PLANO_ATIVO" />
+          <ScalarProperty Name="PLANO_TARIFAEXCEDENTE" ColumnName="PLANO_TARIFAEXCEDENTE" />
+          <ScalarProperty Name="PLANO_PRECO" ColumnName="PLANO_PRECO" />
+          <ScalarProperty Name="PLANO_MINUTOS" ColumnName="PLANO_MINUTOS" />
+          <ScalarProperty Name="PLANO_DESCR" ColumnName="PLANO_DESCR" />
+          <ScalarProperty Name="PLANO_ID" ColumnName="PLANO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRECO">
+      <EntityTypeMapping TypeName="Model.PRECO">
+        <MappingFragment StoreEntitySet="PRECO">
+          <ScalarProperty Name="PRECO_ATIVO" ColumnName="PRECO_ATIVO" />
+          <ScalarProperty Name="PRECO_VALORMINUTO" ColumnName="PRECO_VALORMINUTO" />
+          <ScalarProperty Name="PRECO_IDDESTINO" ColumnName="PRECO_IDDESTINO" />
+          <ScalarProperty Name="PRECO_IDORIGEM" ColumnName="PRECO_IDORIGEM" />
+          <ScalarProperty Name="PRECO_ID" ColumnName="PRECO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

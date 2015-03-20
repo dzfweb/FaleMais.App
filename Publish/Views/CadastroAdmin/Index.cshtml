@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FaleMais.Models.ADMIN>
+
+@{
+    ViewBag.Title = "Cadastrar Admin";
+}
+
+<h2>Cadastrar Admin</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ADMIN_LOGIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADMIN_PASS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADMIN_ATIVO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADMIN_LOGIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADMIN_PASS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADMIN_ATIVO)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ADMIN_ID }) |
+            @Html.ActionLink("Exibir", "Details", new { id=item.ADMIN_ID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.ADMIN_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<FaleMais.Models.PLANO>
+
+@{
+    ViewBag.Title = "Cadastrar Planos";
+}
+
+<h2>Cadastrar Planos</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PLANO_DESCR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PLANO_MINUTOS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PLANO_PRECO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PLANO_TARIFAEXCEDENTE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PLANO_ATIVO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PLANO_DESCR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PLANO_MINUTOS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PLANO_PRECO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PLANO_TARIFAEXCEDENTE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PLANO_ATIVO)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.PLANO_ID }) |
+            @Html.ActionLink("Exibir", "Details", new { id=item.PLANO_ID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.PLANO_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,68 @@
+﻿@model FaleMais.Models.PLANO
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Cadastrar</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>PLANO</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PLANO_DESCR)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PLANO_DESCR)
+            @Html.ValidationMessageFor(model => model.PLANO_DESCR)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PLANO_MINUTOS)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PLANO_MINUTOS)
+            @Html.ValidationMessageFor(model => model.PLANO_MINUTOS)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PLANO_PRECO)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PLANO_PRECO)
+            @Html.ValidationMessageFor(model => model.PLANO_PRECO)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PLANO_TARIFAEXCEDENTE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PLANO_TARIFAEXCEDENTE)
+            @Html.ValidationMessageFor(model => model.PLANO_TARIFAEXCEDENTE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PLANO_ATIVO)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PLANO_ATIVO)
+            @Html.ValidationMessageFor(model => model.PLANO_ATIVO)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Voltar ", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

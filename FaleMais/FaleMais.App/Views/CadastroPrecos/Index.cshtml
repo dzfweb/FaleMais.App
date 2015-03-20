@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FaleMais.Models.PRECO>
+
+@{
+    ViewBag.Title = "Cadastrar Preços";
+}
+
+<h2>Cadastrar Preços</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("DDD Origem")
+        </th>
+        <th>
+            @Html.DisplayName("DDD Destino")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECO_VALORMINUTO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRECO_ATIVO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DDD.DDD_CODIGO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DDD1.DDD_CODIGO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECO_VALORMINUTO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRECO_ATIVO)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.PRECO_ID }) |
+            @Html.ActionLink("Exibir", "Details", new { id=item.PRECO_ID }) |
+            @Html.ActionLink("Deletar", "Delete", new { id=item.PRECO_ID })
+        </td>
+    </tr>
+}
+
+</table>

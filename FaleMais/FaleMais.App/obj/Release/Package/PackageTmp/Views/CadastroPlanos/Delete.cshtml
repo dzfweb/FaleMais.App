@@ -1,0 +1,54 @@
+﻿@model FaleMais.Models.PLANO
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deletar</h2>
+
+<h3>Você realmente deseja excluir este item?</h3>
+<fieldset>
+    <legend>PLANO</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_DESCR)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_DESCR)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_MINUTOS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_MINUTOS)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_PRECO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_PRECO)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_TARIFAEXCEDENTE)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_TARIFAEXCEDENTE)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_ATIVO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_ATIVO)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Voltar ", "Index")
+    </p>
+}

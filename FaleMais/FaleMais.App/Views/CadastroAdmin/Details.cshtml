@@ -1,0 +1,36 @@
+﻿@model FaleMais.Models.ADMIN
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ADMIN</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADMIN_LOGIN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADMIN_LOGIN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADMIN_PASS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADMIN_PASS)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADMIN_ATIVO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADMIN_ATIVO)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.ADMIN_ID }) |
+    @Html.ActionLink("Voltar ", "Index")
+</p>

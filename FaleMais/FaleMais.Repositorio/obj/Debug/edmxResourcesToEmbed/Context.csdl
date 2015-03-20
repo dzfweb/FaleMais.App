@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMIN" EntityType="Model.ADMIN" />
+    <EntitySet Name="DDD" EntityType="Model.DDD" />
+    <EntitySet Name="PLANO" EntityType="Model.PLANO" />
+    <EntitySet Name="PRECO" EntityType="Model.PRECO" />
+    <AssociationSet Name="PRECO_FK1" Association="Model.PRECO_FK1">
+      <End Role="DDD" EntitySet="DDD" />
+      <End Role="PRECO" EntitySet="PRECO" />
+    </AssociationSet>
+    <AssociationSet Name="PRECO_FK2" Association="Model.PRECO_FK2">
+      <End Role="DDD" EntitySet="DDD" />
+      <End Role="PRECO" EntitySet="PRECO" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="ADMIN_ID" />
+    </Key>
+    <Property Name="ADMIN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ADMIN_LOGIN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ADMIN_PASS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ADMIN_ATIVO" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DDD">
+    <Key>
+      <PropertyRef Name="DDD_ID" />
+    </Key>
+    <Property Name="DDD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DDD_CODIGO" Type="Int32" Nullable="false" />
+    <Property Name="DDD_ATIVO" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="PRECO" Relationship="Model.PRECO_FK1" FromRole="DDD" ToRole="PRECO" />
+    <NavigationProperty Name="PRECO1" Relationship="Model.PRECO_FK2" FromRole="DDD" ToRole="PRECO" />
+  </EntityType>
+  <EntityType Name="PLANO">
+    <Key>
+      <PropertyRef Name="PLANO_ID" />
+    </Key>
+    <Property Name="PLANO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PLANO_DESCR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PLANO_MINUTOS" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PLANO_PRECO" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PLANO_TARIFAEXCEDENTE" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PLANO_ATIVO" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRECO">
+    <Key>
+      <PropertyRef Name="PRECO_ID" />
+    </Key>
+    <Property Name="PRECO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PRECO_IDORIGEM" Type="Int32" Nullable="false" />
+    <Property Name="PRECO_IDDESTINO" Type="Int32" Nullable="false" />
+    <Property Name="PRECO_VALORMINUTO" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="PRECO_ATIVO" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="DDD" Relationship="Model.PRECO_FK1" FromRole="PRECO" ToRole="DDD" />
+    <NavigationProperty Name="DDD1" Relationship="Model.PRECO_FK2" FromRole="PRECO" ToRole="DDD" />
+  </EntityType>
+  <Association Name="PRECO_FK1">
+    <End Type="Model.DDD" Role="DDD" Multiplicity="1" />
+    <End Type="Model.PRECO" Role="PRECO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DDD">
+        <PropertyRef Name="DDD_ID" />
+      </Principal>
+      <Dependent Role="PRECO">
+        <PropertyRef Name="PRECO_IDORIGEM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRECO_FK2">
+    <End Type="Model.DDD" Role="DDD" Multiplicity="1" />
+    <End Type="Model.PRECO" Role="PRECO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DDD">
+        <PropertyRef Name="DDD_ID" />
+      </Principal>
+      <Dependent Role="PRECO">
+        <PropertyRef Name="PRECO_IDDESTINO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

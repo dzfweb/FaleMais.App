@@ -1,0 +1,43 @@
+﻿@model FaleMais.Models.PRECO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PRECO</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DDD.DDD_ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DDD.DDD_ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DDD1.DDD_ID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DDD1.DDD_ID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PRECO_VALORMINUTO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRECO_VALORMINUTO)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PRECO_ATIVO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRECO_ATIVO)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.PRECO_ID }) |
+    @Html.ActionLink("Voltar ", "Index")
+</p>

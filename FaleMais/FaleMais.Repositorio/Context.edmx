@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FaleMais.App.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="ADMIN_ID" />
+          </Key>
+          <Property Name="ADMIN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ADMIN_LOGIN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ADMIN_PASS" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ADMIN_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DDD">
+          <Key>
+            <PropertyRef Name="DDD_ID" />
+          </Key>
+          <Property Name="DDD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DDD_CODIGO" Type="int" Nullable="false" />
+          <Property Name="DDD_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PLANO">
+          <Key>
+            <PropertyRef Name="PLANO_ID" />
+          </Key>
+          <Property Name="PLANO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PLANO_DESCR" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PLANO_MINUTOS" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PLANO_PRECO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PLANO_TARIFAEXCEDENTE" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PLANO_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRECO">
+          <Key>
+            <PropertyRef Name="PRECO_ID" />
+          </Key>
+          <Property Name="PRECO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRECO_IDORIGEM" Type="int" Nullable="false" />
+          <Property Name="PRECO_IDDESTINO" Type="int" Nullable="false" />
+          <Property Name="PRECO_VALORMINUTO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PRECO_ATIVO" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="PRECO_FK1">
+          <End Role="DDD" Type="Self.DDD" Multiplicity="1" />
+          <End Role="PRECO" Type="Self.PRECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DDD">
+              <PropertyRef Name="DDD_ID" />
+            </Principal>
+            <Dependent Role="PRECO">
+              <PropertyRef Name="PRECO_IDORIGEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRECO_FK2">
+          <End Role="DDD" Type="Self.DDD" Multiplicity="1" />
+          <End Role="PRECO" Type="Self.PRECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DDD">
+              <PropertyRef Name="DDD_ID" />
+            </Principal>
+            <Dependent Role="PRECO">
+              <PropertyRef Name="PRECO_IDDESTINO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FaleMaisAppModelStoreContainer">
+          <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DDD" EntityType="Self.DDD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PLANO" EntityType="Self.PLANO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRECO" EntityType="Self.PRECO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="PRECO_FK1" Association="Self.PRECO_FK1">
+            <End Role="DDD" EntitySet="DDD" />
+            <End Role="PRECO" EntitySet="PRECO" />
+          </AssociationSet>
+          <AssociationSet Name="PRECO_FK2" Association="Self.PRECO_FK2">
+            <End Role="DDD" EntitySet="DDD" />
+            <End Role="PRECO" EntitySet="PRECO" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMIN" EntityType="Model.ADMIN" />
+          <EntitySet Name="DDD" EntityType="Model.DDD" />
+          <EntitySet Name="PLANO" EntityType="Model.PLANO" />
+          <EntitySet Name="PRECO" EntityType="Model.PRECO" />
+          <AssociationSet Name="PRECO_FK1" Association="Model.PRECO_FK1">
+            <End Role="DDD" EntitySet="DDD" />
+            <End Role="PRECO" EntitySet="PRECO" />
+          </AssociationSet>
+          <AssociationSet Name="PRECO_FK2" Association="Model.PRECO_FK2">
+            <End Role="DDD" EntitySet="DDD" />
+            <End Role="PRECO" EntitySet="PRECO" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ADMIN">
+          <Key>
+            <PropertyRef Name="ADMIN_ID" />
+          </Key>
+          <Property Name="ADMIN_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ADMIN_LOGIN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADMIN_PASS" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ADMIN_ATIVO" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DDD">
+          <Key>
+            <PropertyRef Name="DDD_ID" />
+          </Key>
+          <Property Name="DDD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DDD_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="DDD_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="PRECO" Relationship="Model.PRECO_FK1" FromRole="DDD" ToRole="PRECO" />
+          <NavigationProperty Name="PRECO1" Relationship="Model.PRECO_FK2" FromRole="DDD" ToRole="PRECO" />
+        </EntityType>
+        <EntityType Name="PLANO">
+          <Key>
+            <PropertyRef Name="PLANO_ID" />
+          </Key>
+          <Property Name="PLANO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PLANO_DESCR" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PLANO_MINUTOS" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PLANO_PRECO" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PLANO_TARIFAEXCEDENTE" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PLANO_ATIVO" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRECO">
+          <Key>
+            <PropertyRef Name="PRECO_ID" />
+          </Key>
+          <Property Name="PRECO_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRECO_IDORIGEM" Type="Int32" Nullable="false" />
+          <Property Name="PRECO_IDDESTINO" Type="Int32" Nullable="false" />
+          <Property Name="PRECO_VALORMINUTO" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="PRECO_ATIVO" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DDD" Relationship="Model.PRECO_FK1" FromRole="PRECO" ToRole="DDD" />
+          <NavigationProperty Name="DDD1" Relationship="Model.PRECO_FK2" FromRole="PRECO" ToRole="DDD" />
+        </EntityType>
+        <Association Name="PRECO_FK1">
+          <End Type="Model.DDD" Role="DDD" Multiplicity="1" />
+          <End Type="Model.PRECO" Role="PRECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DDD">
+              <PropertyRef Name="DDD_ID" />
+            </Principal>
+            <Dependent Role="PRECO">
+              <PropertyRef Name="PRECO_IDORIGEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PRECO_FK2">
+          <End Type="Model.DDD" Role="DDD" Multiplicity="1" />
+          <End Type="Model.PRECO" Role="PRECO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DDD">
+              <PropertyRef Name="DDD_ID" />
+            </Principal>
+            <Dependent Role="PRECO">
+              <PropertyRef Name="PRECO_IDDESTINO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FaleMaisAppModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="ADMIN">
+            <EntityTypeMapping TypeName="Model.ADMIN">
+              <MappingFragment StoreEntitySet="ADMIN">
+                <ScalarProperty Name="ADMIN_ATIVO" ColumnName="ADMIN_ATIVO" />
+                <ScalarProperty Name="ADMIN_PASS" ColumnName="ADMIN_PASS" />
+                <ScalarProperty Name="ADMIN_LOGIN" ColumnName="ADMIN_LOGIN" />
+                <ScalarProperty Name="ADMIN_ID" ColumnName="ADMIN_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DDD">
+            <EntityTypeMapping TypeName="Model.DDD">
+              <MappingFragment StoreEntitySet="DDD">
+                <ScalarProperty Name="DDD_ATIVO" ColumnName="DDD_ATIVO" />
+                <ScalarProperty Name="DDD_CODIGO" ColumnName="DDD_CODIGO" />
+                <ScalarProperty Name="DDD_ID" ColumnName="DDD_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PLANO">
+            <EntityTypeMapping TypeName="Model.PLANO">
+              <MappingFragment StoreEntitySet="PLANO">
+                <ScalarProperty Name="PLANO_ATIVO" ColumnName="PLANO_ATIVO" />
+                <ScalarProperty Name="PLANO_TARIFAEXCEDENTE" ColumnName="PLANO_TARIFAEXCEDENTE" />
+                <ScalarProperty Name="PLANO_PRECO" ColumnName="PLANO_PRECO" />
+                <ScalarProperty Name="PLANO_MINUTOS" ColumnName="PLANO_MINUTOS" />
+                <ScalarProperty Name="PLANO_DESCR" ColumnName="PLANO_DESCR" />
+                <ScalarProperty Name="PLANO_ID" ColumnName="PLANO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRECO">
+            <EntityTypeMapping TypeName="Model.PRECO">
+              <MappingFragment StoreEntitySet="PRECO">
+                <ScalarProperty Name="PRECO_ATIVO" ColumnName="PRECO_ATIVO" />
+                <ScalarProperty Name="PRECO_VALORMINUTO" ColumnName="PRECO_VALORMINUTO" />
+                <ScalarProperty Name="PRECO_IDDESTINO" ColumnName="PRECO_IDDESTINO" />
+                <ScalarProperty Name="PRECO_IDORIGEM" ColumnName="PRECO_IDORIGEM" />
+                <ScalarProperty Name="PRECO_ID" ColumnName="PRECO_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

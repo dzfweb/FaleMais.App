@@ -1,0 +1,12 @@
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\db.mdf
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\db_log.ldf
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\FaleMais.Repositorio.dll.config
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\FaleMais.Repositorio.dll
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\FaleMais.Repositorio.pdb
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\obj\Debug\FaleMais.Repositorio.csprojResolveAssemblyReference.cache
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\obj\Debug\FaleMais.Repositorio.dll
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\obj\Debug\FaleMais.Repositorio.pdb
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\EntityFramework.dll
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\FaleMais.Models.dll
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\FaleMais.Models.pdb
+F:\Projetos\Vizir\FaleMais\FaleMais\FaleMais.Repositorio\bin\Debug\EntityFramework.xml

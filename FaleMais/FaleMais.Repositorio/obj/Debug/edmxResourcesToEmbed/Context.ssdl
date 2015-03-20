@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FaleMais.App.Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMIN">
+    <Key>
+      <PropertyRef Name="ADMIN_ID" />
+    </Key>
+    <Property Name="ADMIN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ADMIN_LOGIN" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ADMIN_PASS" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ADMIN_ATIVO" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DDD">
+    <Key>
+      <PropertyRef Name="DDD_ID" />
+    </Key>
+    <Property Name="DDD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DDD_CODIGO" Type="int" Nullable="false" />
+    <Property Name="DDD_ATIVO" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PLANO">
+    <Key>
+      <PropertyRef Name="PLANO_ID" />
+    </Key>
+    <Property Name="PLANO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PLANO_DESCR" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PLANO_MINUTOS" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PLANO_PRECO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PLANO_TARIFAEXCEDENTE" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PLANO_ATIVO" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRECO">
+    <Key>
+      <PropertyRef Name="PRECO_ID" />
+    </Key>
+    <Property Name="PRECO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PRECO_IDORIGEM" Type="int" Nullable="false" />
+    <Property Name="PRECO_IDDESTINO" Type="int" Nullable="false" />
+    <Property Name="PRECO_VALORMINUTO" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PRECO_ATIVO" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="PRECO_FK1">
+    <End Role="DDD" Type="Self.DDD" Multiplicity="1" />
+    <End Role="PRECO" Type="Self.PRECO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DDD">
+        <PropertyRef Name="DDD_ID" />
+      </Principal>
+      <Dependent Role="PRECO">
+        <PropertyRef Name="PRECO_IDORIGEM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PRECO_FK2">
+    <End Role="DDD" Type="Self.DDD" Multiplicity="1" />
+    <End Role="PRECO" Type="Self.PRECO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DDD">
+        <PropertyRef Name="DDD_ID" />
+      </Principal>
+      <Dependent Role="PRECO">
+        <PropertyRef Name="PRECO_IDDESTINO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FaleMaisAppModelStoreContainer">
+    <EntitySet Name="ADMIN" EntityType="Self.ADMIN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DDD" EntityType="Self.DDD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLANO" EntityType="Self.PLANO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRECO" EntityType="Self.PRECO" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="PRECO_FK1" Association="Self.PRECO_FK1">
+      <End Role="DDD" EntitySet="DDD" />
+      <End Role="PRECO" EntitySet="PRECO" />
+    </AssociationSet>
+    <AssociationSet Name="PRECO_FK2" Association="Self.PRECO_FK2">
+      <End Role="DDD" EntitySet="DDD" />
+      <End Role="PRECO" EntitySet="PRECO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

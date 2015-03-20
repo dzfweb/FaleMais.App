@@ -1,0 +1,29 @@
+﻿@model FaleMais.Models.DDD
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>DDD</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DDD_CODIGO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DDD_CODIGO)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DDD_ATIVO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DDD_ATIVO)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.DDD_ID }) |
+    @Html.ActionLink("Voltar ", "Index")
+</p>

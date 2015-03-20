@@ -1,0 +1,50 @@
+﻿@model FaleMais.Models.PLANO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PLANO</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_DESCR)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_DESCR)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_MINUTOS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_MINUTOS)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_PRECO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_PRECO)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_TARIFAEXCEDENTE)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_TARIFAEXCEDENTE)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PLANO_ATIVO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PLANO_ATIVO)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id=Model.PLANO_ID }) |
+    @Html.ActionLink("Voltar ", "Index")
+</p>

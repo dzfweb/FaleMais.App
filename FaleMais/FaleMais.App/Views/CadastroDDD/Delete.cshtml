@@ -1,0 +1,33 @@
+﻿@model FaleMais.Models.DDD
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Deletar</h2>
+
+<h3>Você realmente deseja excluir este item?</h3>
+<fieldset>
+    <legend>DDD</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DDD_CODIGO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DDD_CODIGO)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DDD_ATIVO)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DDD_ATIVO)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Voltar ", "Index")
+    </p>
+}
